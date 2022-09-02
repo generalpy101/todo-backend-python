@@ -111,8 +111,12 @@ MAX_CONN_AGE = 600
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+        "ENGINE": "django.db.backends.postgres",
+        "NAME": "dch3gh9geoefvr",
+        "HOST" : "ec2-54-159-175-38.compute-1.amazonaws.com",
+        "PORT" : 5432,
+        "USER" : "chstjgahqrdnvo",
+        "PASSWORD" : "d0bd5e8f5336ffa1013dae61dbc58b62608bf1debb20bbf8cb94461b3f518884"
     }
 }
 
