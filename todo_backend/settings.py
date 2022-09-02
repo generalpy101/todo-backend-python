@@ -111,7 +111,7 @@ MAX_CONN_AGE = 600
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgres",
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": "dch3gh9geoefvr",
         "HOST" : "ec2-54-159-175-38.compute-1.amazonaws.com",
         "PORT" : 5432,
@@ -170,6 +170,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = Path.joinpath(BASE_DIR, 'static'),
-STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'static')
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
