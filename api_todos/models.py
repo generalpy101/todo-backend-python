@@ -15,7 +15,7 @@ class Tag(models.Model):
     
 
 class Todo(models.Model) :
-    id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4)
     title = models.CharField(max_length=255)
     isDated = models.BooleanField(default=False)
     deadline = models.DateTimeField(auto_now_add=False,null=True,blank=True)

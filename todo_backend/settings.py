@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import pathlib
 import dj_database_url
 import os
 
@@ -108,16 +109,24 @@ WSGI_APPLICATION = 'todo_backend.wsgi.application'
 
 MAX_CONN_AGE = 600
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "dch3gh9geoefvr",
-        "HOST" : "ec2-54-159-175-38.compute-1.amazonaws.com",
-        "PORT" : 5432,
-        "USER" : "chstjgahqrdnvo",
-        "PASSWORD" : "d0bd5e8f5336ffa1013dae61dbc58b62608bf1debb20bbf8cb94461b3f518884"
+if IS_HEROKU:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "dch3gh9geoefvr",
+            "HOST": "ec2-54-159-175-38.compute-1.amazonaws.com",
+            "PORT": 5432,
+            "USER": "chstjgahqrdnvo",
+            "PASSWORD": "d0bd5e8f5336ffa1013dae61dbc58b62608bf1debb20bbf8cb94461b3f518884"
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": pathlib.Path.joinpath(BASE_DIR, "db.sqlite3")
+        }
+    }
 
 if "DATABASE_URL" in os.environ:
     # Configure Django for DATABASE_URL environment variable.
